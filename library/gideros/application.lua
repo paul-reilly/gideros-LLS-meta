@@ -332,3 +332,10 @@ function Application:requestPermissions(permissions) end
 ---@param setting string
 ---@param ... string|number # values to set 
 function Application:set(setting, ...) end
+
+---
+---Set's the background color for the whole application
+---
+---@param color integer # e.g. 0xbedead
+function Application:setBackgroundColor(color) end
+

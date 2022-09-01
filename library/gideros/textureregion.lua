@@ -1,4 +1,5 @@
 ---@meta
+---@diagnostic disable: codestyle-check
 
 ---The TextureRegion class specifies a texture and a rectangular region in it. It is used to define independent texture regions within a texture atlas (a large image which contains many smaller sub-images). 
 ---@class TextureRegion : Object

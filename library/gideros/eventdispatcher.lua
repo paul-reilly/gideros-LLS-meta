@@ -1,7 +1,8 @@
 ---@meta
+---@diagnostic disable: codestyle-check
 
 
----@class EventDispatcher
+---@class EventDispatcher : Object
 EventDispatcher = {}
 
 ---
@@ -30,6 +31,14 @@ function EventDispatcher:dispatchEvent(event) end
 ---@param type string # the type of event
 ---@return boolean # A value of true if a listener of the specified type is registered; false otherwise.
 function EventDispatcher:hasEventListener(type) end
+
+---
+---Removes described event listener
+---
+---@param type string # the type of event
+---@param listener function # the listener function that processes the event
+---@param data? any # an optional data parameter that is passed as a first argument to the listener function
+function EventDispatcher:removeEventListener(type, listener, data) end
 
 ---@class Event
 -- EventDispatcher

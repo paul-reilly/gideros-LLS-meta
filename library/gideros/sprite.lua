@@ -1,5 +1,5 @@
 ---@meta
---@diagnostic disable: codestyle-check
+---@diagnostic disable: codestyle-check
 
 ---
 ---The Sprite class is the base class for all objects that can be placed on the scene tree. It is the 
@@ -16,8 +16,9 @@
 ---An unattached sprite can receive Event.ENTER_FRAME event but it will only receive mouse and touch 
 ---events when it is attached to the scene tree. 
 ---
----@class Sprite : Object
+---@class Sprite : EventDispatcher
 Sprite = {}
+stage = Sprite
 
 ---
 ---creates a new Sprite object
@@ -77,6 +78,21 @@ function Sprite:get(parameter) end
 ---
 ---@return number alpha # The alpha of the sprite (value between 0-1)
 function Sprite:getAlpha() end
+
+---
+---Returns the x and y coordinates of the anchor point.
+---
+---@return number x_coord, number y_coord
+function Sprite:getAnchorPoint() end
+
+---
+---Sets the anchor point of a Sprite object.
+---
+---Each Sprite object has an anchor point that affects the positioning of the sprite displayed. By modifying the anchor point, you change the origin of the sprite. For example, setting the anchor point to (0.5, 0.5) moves the center of the sprite to the origin. If you set the anchor point to (1, 1) instead, the bottom-right corner of the sprite will be the origin. The default value of anchor point is (0, 0) which means top-left of the sprite is the origin by default.
+---
+---@param x number # x coordinate of anchor point, usually between [0, 1]
+---@param y number # y coordinate of anchor point, usually between [0, 1]
+function Sprite:setAnchorPoint(x, y) end
 
 ---
 ---Returns x,y,z anchor position of the Sprite in its relative coordinates.
@@ -155,8 +171,22 @@ function Sprite:getHeight(without_transform) end
 ---@return table constraints # table of layout constraints
 function Sprite:getLayoutConstraints() end
 
+---@class SpriteLayoutInfo
+---@field startx number
+---@field starty number
+---@field width number
+---@field height number
+---@field weightx number
+---@field weighty number
+---@field minWidth number
+---@field minHeight number
+
+-- ... continue ...
+---@class Sprite
+
 ---
 ---Returns computed placement value according to Gideros layout system. The returned table can contain the following fields: 
+---
 ---<ul><li><b>startx</b>: The 0-based index of the column the child was placed into<br /></li>
 ---<li><b>starty</b>: The 0-based index of the row the child was placed into<br /></li>
 ---<li><b>width</b>: The width of the child<br /></li>
@@ -165,9 +195,41 @@ function Sprite:getLayoutConstraints() end
 ---<li><b>weighty</b>: The vertical weight of the child<br /></li>
 ---<li><b>minWidth</b> (table): Minimum width<br /></li>
 ---<li><b>minHeight</b> (table): Minimum height<br /></li></ul>
----@return table # layout information
+---@return SpriteLayoutInfo # layout information
 function Sprite:getLayoutInfo() end
 
+
+---@class SpriteLayoutParameters
+---@field columnWidths number[] # an array of minimum width for each column
+---@field rowHeights number[] # an array of minimum height for each row
+---@field columnWeights number[] # an array of relative weights for each column
+---@field rowWeights number[] # an array of relative weights for each row
+---@field insetTop number # the top margin
+---@field insetLeft number # the left margin
+---@field insetBottom number # the bottom margin
+---@field insertRight number # the right margin
+---@field insets number[] # sets the above four margins to the same value at once
+
+-- ... continue ...
+---@class Sprite
+
+---
+---Returns table of layout parameters (SpriteLayoutParameters object)
+---
+---<ul><li><b>columnWidths</b>: an array of minimum width for each column</li>
+---<li><b>rowHeights</b>: an array of minimum height for each row</li>
+---<li><b>columnWeights</b>: an array of relative weights for each column</li>
+---<li><b>rowWeights</b>: an array of relative weights for each row</li>
+---<li><b>insetTop</b>: the top margin</li>
+---<li><b>insetLeft</b>: the left margin</li>
+---<li><b>insetBottom</b>: the bottom margin</li>
+---<li><b>insetRight</b>: the right margin</li>
+---<li><b>insets</b>: sets the above four margins to the same value at once. <b>since 2020.7</b></li>
+---<li><b>equalizeCells</b>: distribute extra spaces so that cells have a size proportional to their weights. <b>since 2020.7</b></li>
+---<li><b>resizeContainer</b>: allow the parent sprite to be resized if children content is too large. <b>since 2020.5</b></li>
+---<li><b>cellSpacingX</b>: horizontal margin between cells. <b>since 2020.7</b></li>
+---<li><b>cellSpacingY</b>: vertical margin between cells. <b>since 2020.7</b></li></ul>
+---@return SpriteLayoutParameters
 function Sprite:getLayoutParameters() end
 
 ---@return Matrix
@@ -241,6 +303,13 @@ function Sprite:getSkewX() end
 function Sprite:getSkewY() end
 
 ---
+---Returns the height of the sprite in pixels. The height is calculated based on the bounds of the content of the sprite.
+---
+---@param without_transform? boolean # if true, returns the height of the Sprite without transformations else returns the transformed height
+---@return number height
+function Sprite:getHeight(without_transform) end
+
+---
 ---Returns the width of the sprite in pixels. The width is calculated based on the bounds of the content of the sprite. 
 ---
 ---@param without_transform? boolean # if true, returns the width of the Sprite without transformations else returns the transformed width
@@ -263,6 +332,10 @@ function Sprite:getZ() end
 ---@param y number
 ---@return number x, number y # coordinates relative to the display object.
 function Sprite:globalToLocal(x, y) end
+
+---@param child Sprite
+---@return boolean has_child
+function Sprite:hasChild(child) end
 
 ---
 ---Checks whether the given coordinates (in global coordinate system) is in bounds of the sprite. 
@@ -535,7 +608,7 @@ function Sprite:setRotationY(rotation) end
 ---sets the horizontal, vertical and z axis scales of the sprite
 ---
 ---@param scale_x number
----@param scale_y number # (default = scaleX of object)
+---@param scale_y? number # (default = scaleX of object)
 ---@param scale_z? number # (default = scaleX of object)
 function Sprite:setScale(scale_x, scale_y, scale_z) end
 
@@ -637,7 +710,7 @@ function Sprite:setX(x) end
 ---Sets the y coordinate of the sprite
 ---
 ---@param y number
-function Sprite:setY(z) end
+function Sprite:setY(y) end
 
 ---
 ---Sets the z coordinate of the sprite

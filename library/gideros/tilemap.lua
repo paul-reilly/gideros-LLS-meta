@@ -1,4 +1,5 @@
 ---@meta
+---@diagnostic disable: codestyle-check
 
 ---@class TileMap
 ---@field FLIP_DIAGONAL number

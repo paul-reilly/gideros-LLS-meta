@@ -1,4 +1,5 @@
 ---@meta
+---@diagnostic disable: codestyle-check
 
 -- version: 1.0
 
