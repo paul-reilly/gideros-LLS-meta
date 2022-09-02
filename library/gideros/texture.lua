@@ -7,8 +7,8 @@ Texture = {}
 ---Create new Texture object
 ---
 ---@param imagefile string
----@param? filtering boolean
----@param? options TextureOptions
+---@param filtering? boolean
+---@param options? TextureOptions
 ---@return Texture
 function Texture.new(imagefile, filtering, options) end
 

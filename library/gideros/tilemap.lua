@@ -1,7 +1,7 @@
 ---@meta
 ---@diagnostic disable: codestyle-check
 
----@class TileMap
+---@class TileMap : Sprite
 ---@field FLIP_DIAGONAL number
 ---@field FLIP_HORIZONTAL number
 ---@field FLIP_VERTICAL number
@@ -21,6 +21,7 @@ TileMap = {}
 ---@param marginy? number # The y-margin from the top-left of the texture (default = 0)
 ---@param displaywidth? number # The display width of a tile in pixels (default = tilewidth)
 ---@param displayheight? number # The display height of a tile in pixels (default = tileheight)
+---@return TileMap
 function TileMap.new(width, height, texture, tilewidth, tileheight, spacingx, spacingy, marginx, marginy, displaywidth, displayheight) end
 
 ---
