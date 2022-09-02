@@ -23,7 +23,7 @@ stage = Sprite
 ---
 ---creates a new Sprite object
 ---
----@return Sprite sprite # A new Sprite object
+---@return Sprite # a new Sprite object
 function Sprite.new() end
 
 ---
@@ -644,11 +644,12 @@ function Sprite:setShader(shader, program_type, program_variant, inherit) end
 ---change the value of a uniform from lua 
 ---
 ---@param uniform_name string # uniform name to change
----@param data_type integer # The type if data to set (one of the Shader.Cxxx constants) 
+---@param data_type integer # The type of data to set (one of the Shader.Cxxx constants) 
 ---@param mult number # number of elements of the given type to set 
 ---@param data table # the actual data to set
 ---@param program_type? integer # type of program this constant applies to
 ---@param program_variant? integer # variant of program this constant applies to
+---@overload fun(uniform_name: string, data_type: integer, mult: number, ...: any)
 function Sprite:setShaderConstant(uniform_name, data_type, mult, data, program_type, program_variant) end
 
 ---

@@ -10,15 +10,19 @@
 ---@field LANDSCAPE_RIGHT string "landscapeRight"
 ---@field PORTRAIT string "portrait"
 ---@field PORTRAIT_UPSIDE_DOWN string "portraitUpsideDown"
+
 -- Scale mode
----@field CENTER string "center"
----@field CROP string "crop"
----@field FIT_HEIGHT string "fitHeight"
----@field FIT_WIDTH string "fitWidth"
----@field LETTERBOX string "letterbox"
----@field NO_SCALE string "noScale"
----@field PIXEL_PERFECT string "pixelPerfect"
----@field STRETCH string "stretch"
+---@alias Application
+---|`CENTER` # "center"
+---|`CROP` # "crop"
+---|`FIT_HEIGHT` # "fitHeight"
+---|`FIT_WIDTH` # "fitWidth"
+---|`LETTERBOX` # "letterbox"
+---|`NO_SCALE` # "noScale"
+---|`PIXEL_PERFECT` # "pixelPerfect"
+---|`STRETCH` # "stretch"
+
+---@class Application
 -- Text input (Android)
 ---@field TEXTINPUT_CLASS_NONE string 0
 ---@field TEXTINPUT_CLASS_TEXT number 1
@@ -338,4 +342,17 @@ function Application:set(setting, ...) end
 ---
 ---@param color integer # e.g. 0xbedead
 function Application:setBackgroundColor(color) end
+
+---@param ok boolean
+function Application:setFullscreen(ok) end
+
+---@param wx number
+---@param wy number
+function Application:setLogicalDimensions(wx, wy) end
+
+---@param orientation string
+function Application:setOrientation(orientation) end
+
+---@param scale_mode string
+function Application:setScaleMode(scale_mode) end
 
