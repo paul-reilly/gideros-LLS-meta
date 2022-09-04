@@ -569,7 +569,7 @@ function Sprite:setLayoutConstraints(constraints) end
 ---<li><b>cellSpacingY</b>: vertical margin between cells. <b>since 2020.7</b></li></ul>
 ---<p>Specifying a <b>nil</b> table will clear layout parameters.
 ---
----@param parameters table
+---@param parameters SpriteLayoutParameters
 function Sprite:setLayoutParameters(parameters) end
 
 ---

@@ -10,19 +10,15 @@
 ---@field LANDSCAPE_RIGHT string "landscapeRight"
 ---@field PORTRAIT string "portrait"
 ---@field PORTRAIT_UPSIDE_DOWN string "portraitUpsideDown"
-
 -- Scale mode
----@alias Application
----|`CENTER` # "center"
----|`CROP` # "crop"
----|`FIT_HEIGHT` # "fitHeight"
----|`FIT_WIDTH` # "fitWidth"
----|`LETTERBOX` # "letterbox"
----|`NO_SCALE` # "noScale"
----|`PIXEL_PERFECT` # "pixelPerfect"
----|`STRETCH` # "stretch"
-
----@class Application
+---@field CENTER string # "center"
+---@field CROP string # "crop"
+---@field FIT_HEIGHT string # "fitHeight"
+---@field FIT_WIDTH string # "fitWidth"
+---@field LETTERBOX string # "letterbox"
+---@field NO_SCALE string # "noScale"
+---@field PIXEL_PERFECT string # "pixelPerfect"
+---@field STRETCH string # "stretch"
 -- Text input (Android)
 ---@field TEXTINPUT_CLASS_NONE string 0
 ---@field TEXTINPUT_CLASS_TEXT number 1
@@ -351,8 +347,23 @@ function Application:setFullscreen(ok) end
 function Application:setLogicalDimensions(wx, wy) end
 
 ---@param orientation string
+---|`Application.PORTRAIT`
+---|`Application.PORTRAIT_UPSIDE_DOWN`
+---|`Application.LANDSCAPE_LEFT`
+---|`Application.LANDSCAPE_RIGHT`
 function Application:setOrientation(orientation) end
 
+---
+---Sets the automatic scale mode of the application.
+---
 ---@param scale_mode string
+---|`Application.NO_SCALE`
+---|`Application.CENTER`
+---|`Application.PIXEL_PERFECT`
+---|`Application.LETTERBOX`
+---|`Application.CROP`
+---|`Application.STRETCH`
+---|`Application.FIT_WIDTH`
+---|`Application.FIT_HEIGHT`
 function Application:setScaleMode(scale_mode) end
 

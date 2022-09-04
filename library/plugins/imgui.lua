@@ -1,4 +1,0 @@
----@meta
-
----@class ImGui
-ImGui = {}
