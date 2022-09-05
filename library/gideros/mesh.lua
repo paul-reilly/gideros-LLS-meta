@@ -131,77 +131,128 @@ function Mesh:resizeIndexArray(size) end
 ---
 ---resizes the texture coordinates array
 ---
-function Mesh:resizeTextureCoordinateArray() end
+---If size is smaller than the current texture coordinate array size, the content is reduced to its first size elements, the rest being dropped.
+---
+---If size is greater than the current texture coordinate array size, the content is expanded by inserting at the end as many copies of 0s as needed to reach a size of size elements.
+---@param size integer # new texture coordinate array size
+function Mesh:resizeTextureCoordinateArray(size) end
 
 ---
 ---resizes the vertex array
 ---
-function Mesh:resizeVertexArray() end
+---If size is smaller than the current vertex array size, the content is reduced to its first size elements, the rest being dropped.
+---
+---If size is greater than the current vertex array size, the content is expanded by inserting at the end as many copies of 0s as needed to reach a size of size elements.
+---
+---@param size integer # new vertex array size
+function Mesh:resizeVertexArray(size) end
 
 ---
----set a color in the color array
+---Sets a color at color array. Indices are start from 1. If the color array is not large enough, it's expanded automatically.
 ---
-function Mesh:setColor() end
+---@param idx integer
+---@param color integer
+---@param alpha number
+function Mesh:setColor(idx, color, alpha) end
 
 ---
----sets or replace the whole color array
+---Assigns a new content to the color array, dropping all the elements contained in the color array before the call and replacing them by those specified by the parameters. It accepts multiple values or a Lua array. 
 ---
-function Mesh:setColorArray() end
+---@param colors table # table of colors and alphas
+---@overload fun(self: any, ...: any) # a pair or sequence of pairs colors and alphas
+function Mesh:setColorArray(colors) end
 
 ---
----sets several colors at once
+---Sets zero or more colors to a mesh with a single function call.
 ---
-function Mesh:setColors() end
+---@param colors table # table of colors and alphas
+---@overload fun(self: any, ...: any) # a pair or sequence of pairs colors and alphas
+function Mesh:setColors(colors) end
 
 ---
----set the face culling mode
+---set the face culling mode (undocumented)
 ---
-function Mesh:setCullMode() end
+---@param mode any
+function Mesh:setCullMode(mode) end
 
 ---
----sets or replace a generic array
+---Assigns a new content to a generic additional array to be used by a shader.
 ---
-function Mesh:setGenericArray() end
+---@param idx integer
+---@param type integer
+---|`Shader.DBYTE`
+---|`Shader.DFLOAT`
+---|`Shader.DINT`
+---|`Shader.DSHORT`
+---|`Shader.DUBYTE`
+---|`Shader.DUSHORT`
+---@param mult number # the vector dimension (1 for simple values, 2 for a vec2/float2, etc) 
+---@param count integer # number of elements in the array
+---@param data table # actual values
+---@overload fun(self: any, idx: number, type: integer, mult: number, count: integer, ...: any)
+function Mesh:setGenericArray(idx, type, mult, count, data) end
 
 ---
----set an index in the index array
+---set an index in the index array. Indices start from 1. If the index array is not large enough, it's expanded automatically.
 ---
-function Mesh:setIndex() end
+---@param idx integer
+---@param index number
+function Mesh:setIndex(idx, index) end
 
 ---
----sets or replace the whole index array
+---Assigns new content to the index array, dropping all the elements contained in the index array before the call and replacing them by those specified by the parameters. It accepts multiple values or a Lua array.
 ---
-function Mesh:setIndexArray() end
+---@param indices number[]
+---@overload fun(self: Mesh, ...: number)
+function Mesh:setIndexArray(indices) end
 
 ---
----sets several indices at once
+---Sets zero or more indices at index array with a single function call. It accepts multiple values or a Lua array.
 ---
-function Mesh:setIndices() end
+---```lua 
+--- -- set indices 1, 2 and 3 with one function call
+--- mesh:setIndices(1, 10, 2, 11, 3, 12)
+---
+--- -- same as above
+--- mesh:setIndices({1, 10, 2, 11, 3, 12})
+---
+---@param indices number[] # table of sequence of idx/index pairs 
+---@overload fun(self: Mesh, ...: number)
+function Mesh:setIndices(indices) end
 
 ---
----enable instanced rendering and sets the number of instances to draw
+---(undocumented) enable instanced rendering and sets the number of instances to draw
 ---
-function Mesh:setInstanceCount() end
+---@param ... any
+function Mesh:setInstanceCount(...) end
 
 ---
----set the type of primitives to render
+---(undocumented) set the type of primitives to render
 ---
-function Mesh:setPrimitiveType() end
+---@param ... any
+function Mesh:setPrimitiveType(...) end
 
 ---
 ---attach a texture to the Mesh
 ---
-function Mesh:setTexture() end
+---@param texture TextureBase
+---@param slot? number # the slot number which we are adding the Texture to (Meshes can have multiple Textures, one per slot). If omitted, slot=0 is assumed.
+function Mesh:setTexture(texture, slot) end
 
 ---
 ---set a texture coordinate in the texture coordinates array
 ---
-function Mesh:setTextureCoordinate() end
+---@param idx integer
+---@param u number # u coordinate
+---@param v any # v coordinate
+function Mesh:setTextureCoordinate(idx, u, v) end
 
 ---
----sets or replace the whole texture coordinates array
+---Assigns new content to the texture coordinate array, dropping all the elements contained in the texture coordinate array before the call and replacing them by those specified by the parameters. It accepts multiple values or a Lua array.
 ---
-function Mesh:setTextureCoordinateArray() end
+---@param texture_coords integer[]
+---@overload fun(self: Mesh, ...: integer)
+function Mesh:setTextureCoordinateArray(texture_coords) end
 
 ---
 ---sets several texture coordinates at once

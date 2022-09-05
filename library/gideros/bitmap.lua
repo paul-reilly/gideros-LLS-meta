@@ -7,7 +7,7 @@ Bitmap = {}
 ---
 ---Create new bitmap object using a Texture
 ---
----@param texture Texture|TextureRegion
+---@param texture TextureBase|TextureRegion
 ---@return Bitmap
 function Bitmap.new(texture) end
 

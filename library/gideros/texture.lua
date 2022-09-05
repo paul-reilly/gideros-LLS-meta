@@ -14,7 +14,7 @@ function Texture.new(imagefile, filtering, options) end
 
 ---@class TextureOptions
 ---@field transparentColor number specifies which color stands for transparent for formats that don't supply an alpha channel such as JPEG
----@field wrap number how to treat texels outside the texture. Possible values are Texture.CLAMP and Texture.REPEAT
+---@field wrap string how to treat texels outside the texture. Possible values are Texture.CLAMP and Texture.REPEAT
 ---@field format integer the GPU pixel format for the texture
 ---@field extend boolean whether the texture should be extended to a power of two size. Defaults to true
 ---@field scale number the scale at which this texture was made, if it cannot be determined by a suffix. Defaults to 1

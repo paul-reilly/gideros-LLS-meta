@@ -321,8 +321,8 @@ function Matrix:setRotationZ(val) end
 --- transform matrix for setting scale
 ---
 ---@param x number
----@param y number
----@param z number
+---@param y? number
+---@param z? number
 function Matrix:setScale(x, y, z) end
 
 ---

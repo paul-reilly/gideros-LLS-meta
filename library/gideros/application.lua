@@ -340,7 +340,7 @@ function Application:set(setting, ...) end
 function Application:setBackgroundColor(color) end
 
 ---@param ok boolean
-function Application:setFullscreen(ok) end
+function Application:setFullScreen(ok) end
 
 ---@param wx number
 ---@param wy number

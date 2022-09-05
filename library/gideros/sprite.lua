@@ -649,7 +649,7 @@ function Sprite:setShader(shader, program_type, program_variant, inherit) end
 ---@param data table # the actual data to set
 ---@param program_type? integer # type of program this constant applies to
 ---@param program_variant? integer # variant of program this constant applies to
----@overload fun(uniform_name: string, data_type: integer, mult: number, ...: any)
+---@overload fun(self: any, uniform_name: string, data_type: integer, mult: number, ...: any)
 function Sprite:setShaderConstant(uniform_name, data_type, mult, data, program_type, program_variant) end
 
 ---

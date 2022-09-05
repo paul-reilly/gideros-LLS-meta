@@ -1,20 +1,20 @@
 ---@meta
 
 ---
----TextureBase is the base class for Texture and TexturePack classes. It provides 
+---TextureBase is the base class for Texture, TexturePack and RenderTarget classes. It provides 
 ---a common functionality to texture related classes. 
 ---
 ---@class TextureBase : Object
----@field CLAMP number
----@field REPEAT number
----@field RGB565 number
----@field RGB888 number
----@field RGBA4444 number
----@field RGBA5551 number
----@field RGBA8888 number
----@field Y8 number
----@field A8 number
----@field YA8 number
+---@field CLAMP string
+---@field REPEAT string
+---@field RGB565 string
+---@field RGB888 string
+---@field RGBA4444 string
+---@field RGBA5551 string
+---@field RGBA8888 string
+---@field Y8 string
+---@field A8 string
+---@field YA8 string
 TextureBase = {}
 
 ---

@@ -1,11 +1,12 @@
 ---@diagnostic disable: codestyle-check
 
-name    = 'Gideros'
-words   = { 'Core%.class.*%(' }
+name    = 'Gideros API'
+words   = { 'Core%.class%s*%(' }
 configs = {
     {
         key = 'Lua.runtime.version',
         action = 'set',
-        value = 'LuaJIT',
+        --value = 'LuaJIT',
+        value = 'Luau'
     },
 }
