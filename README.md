@@ -39,7 +39,7 @@ MyClass = Core.class(Sprite)
 Other than that, following the guidance on the [lua-language-server wiki](https://github.com/sumneko/lua-language-server/wiki) is the way forward!
 
 ## Contributing
-This is a work in progress. If you get type errors/warnings that shouldn't happen or if you then please raise an issue. If you find a class/method that isn't yet annotated then please feel free to raise and issue and/or create a pull request with the changes.
+This is a work in progress. If you get type errors/warnings that shouldn't happen or if you find any other gremlins or demons then please raise an issue. If you find a class/method that isn't yet annotated then please feel free to raise and issue and/or create a pull request with the changes.
 
 The source of truth for copy/paste/Vim is:
 [Gideros Wiki](https://wiki.gideros.rocks)
