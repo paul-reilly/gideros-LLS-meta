@@ -52,21 +52,6 @@ Shader = {}
 function Shader.new(vertex_code_path, frag_code_path, opt, uniforms, attrs) end
 
 ---
----Creates new Shader from Lua code (need to include the Lua Shader library code in project)
----
----@param vertex_func fun() : number # Lua function for vertex shader
----@param frag_func fun() : number # Lua function for fragment shader
----@param opt number # a set of numerical flags or 0 if none
----@param uniforms ShaderUniform[]
----@param attrs ShaderAttribute[]
----@param varying? table|nil
----@param funcs? table|nil
----@param const? table|nil
----@param debug? boolean|nil
----@return Shader
-function Shader.lua(vertex_func, frag_func, opt, uniforms, attrs, varying, funcs, const, debug) end
-
----
 ---Returns string of shader language: glsl, msl or hlsl. 
 ---
 ---@return string
@@ -144,3 +129,10 @@ function Shader:setConstant(uniform_name, data_type, mult, data) end
 ---|`Shader.DSHORT`
 ---|`Shader.DUBYTE`
 ---|`Shader.DUSHORT`
+---@field mult integer
+---@field slot integer
+---@field offset integer
+
+---@class ShaderVarying
+---@field name string
+
