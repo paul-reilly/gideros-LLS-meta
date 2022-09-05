@@ -1,4 +1,5 @@
-#gideros-LLS-meta
+gideros-LLS-meta
+-----
 >**lua-language-server @meta descriptions for the Gideros SDK**
 
 [lua-language-server](https://github.com/sumneko/lua-language-server) (LLS) compiles Lua code into an Abstract Syntax Tree (AST) and can then perform tasks like type and syntax checking. Type checking is done dynamically but, like statically typed languages, the compiler can only know so much without being told about specific types. LLS uses annotations to convey this information to the AST compiler and this repository is a collection of files containing annotations for the Gideros SDK.
