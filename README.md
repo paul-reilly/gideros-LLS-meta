@@ -26,4 +26,19 @@ It's for use in Visual Studio Code, Neovim or other editors that support the Lan
 }
 ```
 
-Have (more) fun coding!
+##Using in the wild
+When creating our own classes we use the following annotation:
+```lua
+---@class MyClass
+---@field new fun(...) : MyClass
+MyClass = Core.class(Sprite)
+```
+... so the type system doesn't think `MyClass` is a `Sprite`.
+
+Other than that, following the guidance on the [lua-language-server wiki](https://github.com/sumneko/lua-language-server/wiki) is the way forward!
+
+##Contributing
+This is a work in progress. If you get type errors/warnings that shouldn't happen or if you then please raise an issue. If you find a class/method that isn't yet annotated then please feel free to raise and issue and/or create a pull request with the changes.
+
+The source of truth for copy/paste/Vim is:
+[Gideros Wiki](https://wiki.gideros.rocks)
