@@ -10,7 +10,7 @@ Here's a demo gif of it in action, note the context sensitive auto-complete sugg
 
 It allows other cool stuff too, like code formatting, symbol renaming, goto definition etc in the VSCode extension.
 
-##Getting started
+## Getting started
 It's for use in Visual Studio Code, Neovim or other editors that support the Language Server Protocol. We'll focus on VSCode, instructions are in the LLS repo for running from the command line for other editors.
 - Install the `lua-language-server` extension for Visual Studio Code (the extension is just called `Lua`). You can also use the language server from the command line in other editors if you build it from source, instructions in the the repo.
 - Clone this repo to a location of your choice.
@@ -27,7 +27,7 @@ It's for use in Visual Studio Code, Neovim or other editors that support the Lan
 }
 ```
 
-##Using in the wild
+## Using in the wild
 When creating our own classes we use the following annotation:
 ```lua
 ---@class MyClass
@@ -38,7 +38,7 @@ MyClass = Core.class(Sprite)
 
 Other than that, following the guidance on the [lua-language-server wiki](https://github.com/sumneko/lua-language-server/wiki) is the way forward!
 
-##Contributing
+## Contributing
 This is a work in progress. If you get type errors/warnings that shouldn't happen or if you then please raise an issue. If you find a class/method that isn't yet annotated then please feel free to raise and issue and/or create a pull request with the changes.
 
 The source of truth for copy/paste/Vim is:
