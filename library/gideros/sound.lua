@@ -13,16 +13,16 @@ function Sound.new(filename) end
 ---
 ---@param x number # x coordinate of the listener
 ---@param y number # y coordinate of the listener
----@param z number # z coordinate of the listener
----@param vx number # x component of the listener's velocity (optional)
----@param vy number # y component of the listener's velocity (optional)
----@param vz number # z component of the listener's velocity (optional)
----@param dx number # x component of the direction the listener is facing (optional)
----@param dy number # y component of the direction the listener is facing (optional)
----@param dz number # z component of the direction the listener is facing (optional)
----@param ux number # x component of up direction relative to the listener (optional)
----@param uy number # y component of up direction relative to the listener (optional)
----@param uz number # z component of up direction relative to the listener (optional)
+---@param z? number # z coordinate of the listener
+---@param vx? number # x component of the listener's velocity
+---@param vy? number # y component of the listener's velocity
+---@param vz? number # z component of the listener's velocity
+---@param dx? number # x component of the direction the listener is facing
+---@param dy? number # y component of the direction the listener is facing
+---@param dz? number # z component of the direction the listener is facing
+---@param ux? number # x component of up direction relative to the listener
+---@param uy? number # y component of up direction relative to the listener
+---@param uz? number # z component of up direction relative to the listener
 function Sound.setListenerPosition(x, y, z, vx, vy, vz, dx, dy, dz, ux, uy, uz) end
 
 ---
